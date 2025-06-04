@@ -193,7 +193,7 @@ model = dict(
             pc_range=point_cloud_range))))
 
 dataset_type = 'CustomNuScenesLocalMapDataset'
-data_root = 'data/nuscenes/'
+data_root = '/home/ali-rehman/Documents/nuscnes-mini/'
 file_client_args = dict(backend='disk')
 
 
@@ -231,8 +231,8 @@ test_pipeline = [
 ]
 
 data = dict(
-    samples_per_gpu=24,
-    workers_per_gpu=4,
+    # samples_per_gpu=24,
+    # workers_per_gpu=4,
     train=dict(
         type=dataset_type,
         data_root=data_root,
@@ -262,7 +262,7 @@ data = dict(
              eval_use_same_gt_sample_num_flag=eval_use_same_gt_sample_num_flag,
              padding_value=-10000,
              map_classes=map_classes,
-             classes=class_names, modality=input_modality, samples_per_gpu=1),
+             classes=class_names, modality=input_modality),
     test=dict(type=dataset_type,
               data_root=data_root,
               ann_file=data_root + 'nuscenes_infos_temporal_val.pkl',
